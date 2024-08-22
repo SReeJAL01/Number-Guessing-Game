@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container" id="gameContainer">
+        <h1>Guess the Number!</h1>
+        <form id="playerForm" class="player-form">
+            <label for="playerName">Name:</label>
+            <input type="text" id="playerName" required>
+            <label for="playerAge">Age:</label>
+            <input type="number" id="playerAge" required>
+            <button type="button" class="start-game-btn" onclick="startGame()">Start Game</button>
+        </form>
+        <div id="gameContent" class="game-content" style="display: none;">
+            <div class="mode-select">
+                <div class="mode-row">
+                    <button id="easyBtn" onclick="setMode('easy')">Easy</button>
+                    <button id="mediumBtn" onclick="setMode('medium')">Medium</button>
+                </div>
+                <div class="mode-row">
+                    <button id="hardBtn" onclick="setMode('hard')">Hard</button>
+                </div>
+            </div>
+            <div class="slider-container">
+                <input type="range" id="guessRange" min="1" max="10" value="1" step="1">
+                <p>Selected Number: <span id="selectedNumber">1</span></p>
+            </div>
+            <div class="hint" id="hint"></div>
+            <p>Attempts Remaining: <span id="attemptsLeft">10</span></p>
+            <button type="submit" onclick="checkGuess()">Submit Guess</button>
+        </div>
+    </div>
+    <div class="popup" id="popup">
+        <h2 id="popupMessage">Congratulations! 🎉</h2>
+        <button onclick="closePopup()">Close</button>
+    </div>
+    <div class="confetti" id="confetti"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
